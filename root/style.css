@@ -1,0 +1,455 @@
+/* FONT FAMILY */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;900&display=swap");
+
+:root {
+  --clr-primary-1: #3fa2a8;
+  --bg-primary-1: #f5f4ee;
+  --p-primary-1: #646464;
+}
+/*
+=============== 
+Global Styles/ Reset
+===============
+*/
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body,
+h1,
+h2,
+h3,
+h4 p,
+figure,
+picture {
+  margin: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  text-transform: capitalize;
+  font-weight: 400;
+}
+a,
+li {
+  text-decoration: none;
+  list-style: none;
+}
+body {
+  line-height: 1.5;
+  min-height: 100vh;
+  font-family: "Roboto", sans-serif;
+
+  display: grid;
+  grid-template-rows: -webkit-min-content 1fr;
+  grid-template-rows: min-content 1fr;
+  overflow-x: hidden;
+}
+/* imgs easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+/* form elements easier to work with */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/* remove animation for people who turned them off */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    -webkit-animation-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01sms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* =========
+utility clases 
+=========== */
+.hidden {
+  display: none;
+}
+.inline {
+  display: inline-block;
+}
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+.d-block {
+  display: block;
+}
+/* header */
+.logo {
+  margin: clamp(1.5rem, 5vw, 2rem);
+}
+.primary-header {
+  align-items: center;
+  justify-content: space-between;
+}
+@media screen and (max-width: 768px) {
+  .flex {
+    flex-wrap: wrap;
+  }
+}
+/* SPACING .flow */
+/* Seclect all the elements of a divider except the first Child */
+/* It is use to make the top and botton line heights and borders the same */
+/* Where is a way to group things, is lower on specificy so we dont overwrite things*/
+.flow > *:where(:not(:first-child)) {
+  margin-top: var(--flow-space, 1rem);
+  /* outline: 1px solid red; */
+}
+.container {
+  padding-inline: 2rem;
+  margin-inline: auto;
+  max-width: 1200px;
+}
+
+@media (max-width: 45em) {
+  .flex-container {
+    flex-direction: column;
+  }
+}
+
+/* for the visually impaired -Hide Contten- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+body {
+  background-color: var(--bg-primary-1);
+}
+/* LANDING */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+}
+@media screen and (min-width: 812px) {
+  .container {
+    height: 100vh;
+    flex-direction: row;
+    align-items: center;
+  }
+}
+.my-description h1 {
+  margin-block: 4rem;
+  font-weight: bold;
+  color: var(--clr-primary-1);
+}
+.my-description p {
+  line-height: 2;
+  font-size: 1.2rem;
+  font-weight: 500;
+  width: 15rem;
+  color: #646464;
+}
+@media screen and (min-width: 500px) {
+  .my-description p {
+    min-width: 25rem;
+    max-width: 30rem;
+  }
+}
+@media screen and (min-width: 812px) {
+  .my-description p {
+    min-width: 30rem;
+    max-width: 30rem;
+  }
+}
+.container .name {
+  color: var(--clr-primary-1);
+  font-weight: bold;
+}
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+.btn {
+  background: transparent;
+  border: 2px solid white;
+  font-weight: bold;
+  font-size: 1rem;
+
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  cursor: pointer;
+  color: var(--clr-primary-1);
+  border-color: var(--clr-primary-1);
+}
+.btn-projects {
+  padding: 0.8rem;
+  background: transparent;
+  border: 2px solid white;
+  font-weight: bold;
+  font-size: 1rem;
+  letter-spacing: 1.2px;
+  border-radius: 10px;
+  transition: all 0.3s;
+  margin-top: 1rem;
+  color: var(--p-primary-1);
+}
+.btn-whatsapp {
+  margin-top: 0.6rem;
+  padding-inline: 1.6rem;
+  border-color: var(--p-primary-1);
+  font-size: 1.3rem;
+}
+@media screen and (min-width: 812px) {
+  .contact {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 2rem;
+  }
+  .btn-projects {
+    margin-top: 0rem;
+  }
+}
+.contact a {
+  color: var(--clr-primary-1);
+}
+.empty {
+  width: 600px;
+}
+/* BTN */
+
+/* ABOUT ME */
+.about {
+  background-color: var(--bg-primary-1);
+}
+.container--about {
+  gap: 3rem;
+}
+.title--about h2 {
+  text-align: center;
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--clr-primary-1);
+}
+.column {
+  width: 20rem;
+  max-width: 20rem;
+}
+.about-info {
+  line-height: 1.2;
+  font-size: 1rem;
+  font-weight: 200;
+  /* max-width: 40rem; */
+  color: #646464;
+}
+@media screen and (min-width: 812px) {
+  .column {
+    width: 600px;
+    max-width: 600px;
+  }
+  .about-info {
+    line-height: 1.5;
+    font-size: 1.2rem;
+    font-weight: 500;
+    /* max-width: 40rem; */
+  }
+}
+.about-info span {
+  color: var(--clr-primary-1);
+}
+.icons {
+  display: flex;
+  margin-top: 2rem;
+  margin-bottom: 8rem;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  /* border: 1px solid lime; */
+}
+.icon {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  text-align: center;
+}
+.icon i {
+  font-size: 2rem;
+  color: var(--clr-primary-1);
+}
+.icon p {
+  color: #646464;
+}
+/* PROJECT CARDS  */
+.title h1 {
+  color: var(--clr-primary-1);
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 4rem;
+}
+.projects {
+  background-color: var(--bg-primary-1);
+  min-height: 100vh;
+  margin-block: auto;
+}
+.container--projects {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  margin-inline: auto;
+  justify-items: center;
+  gap: 2rem;
+  margin-block: auto;
+}
+.project {
+  max-width: 358px;
+  /* height: 416px; */
+  /* max-height: 200px; */
+  border: 2px solid var(--clr-primary-1);
+  border-radius: 10px;
+  transition: all 0.5s;
+}
+.project .info {
+  padding: 1rem;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-block: auto;
+  display: none;
+}
+.smallsc {
+  margin-inline: auto;
+  text-align: center;
+  color: var(--clr-primary-1);
+  font-size: 13px;
+}
+@media screen and (min-width: 812px) {
+  .smallsc {
+    display: none;
+  }
+  .project {
+    max-width: 358px;
+    height: 416px;
+    max-height: 416px;
+    border: 2px solid var(--clr-primary-1);
+    border-radius: 10px;
+    transition: all 0.5s;
+  }
+  .project .info {
+    display: inline-block;
+  }
+  .container--projects {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-block: auto;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .container--projects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+.project:hover {
+  transform: scale(1.1);
+}
+.project img {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  max-height: 181px;
+  object-fit: stretch;
+}
+.project .info p {
+  color: rgb(94, 94, 94);
+}
+.btn-card {
+  margin-top: 1rem;
+  margin-right: 1.5rem;
+  padding: 0.4rem;
+  color: var(--p-primary-1);
+  border-radius: 10px;
+}
+/* 
+FOOTER
+ */
+.container--footer {
+  display: flex;
+  gap: 1rem;
+  width: 100vw;
+  margin-inline: auto;
+  justify-content: space-around;
+  margin-block: auto;
+  padding: 0.3rem;
+  font-size: 0.9rem;
+}
+
+.logo {
+  width: 60px;
+  margin: 0;
+}
+@media screen and (min-width: 500px) {
+  .container--footer {
+    margin-top: 0rem;
+  }
+}
+@media screen and (min-width: 812px) {
+  .container--footer {
+    margin-top: 0rem;
+    padding: 0;
+    font-size: 1rem;
+  }
+}
+.done {
+  color: var(--clr-primary-1);
+}
+.git {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.git a {
+  text-transform: uppercase;
+  color: var(--clr-primary-1);
+}
+.socials a {
+  color: #2e6171;
+}
+.socials {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.3rem;
+}
