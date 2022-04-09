@@ -309,7 +309,9 @@ body {
 .icon p {
   color: #646464;
 }
-/* PROJECT CARDS  */
+/*-----------------
+ PROJECT CARDS 
+ ---------------- */
 .title h1 {
   color: var(--clr-primary-1);
   text-align: center;
@@ -325,18 +327,17 @@ body {
 }
 .container--projects {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, 22rem);
   margin-inline: auto;
   justify-items: center;
-  gap: 2rem;
+  gap: 1rem;
   margin-block: auto;
+  height: initial;
 }
 .project {
   max-width: 358px;
-  /* height: 416px; */
-  /* max-height: 200px; */
-  border: 2px solid var(--clr-primary-1);
+  background-color: #e0e0e075;
+  padding: 1rem;
   border-radius: 10px;
   transition: all 0.5s;
 }
@@ -347,13 +348,10 @@ body {
   flex-direction: column;
   justify-content: center;
   margin-block: auto;
-  display: none;
+ 
 }
 .smallsc {
-  margin-inline: auto;
-  text-align: center;
-  color: var(--clr-primary-1);
-  font-size: 13px;
+  display: none;
 }
 @media screen and (min-width: 812px) {
   .smallsc {
@@ -363,26 +361,10 @@ body {
     max-width: 358px;
     height: 416px;
     max-height: 416px;
-    border: 2px solid var(--clr-primary-1);
     border-radius: 10px;
     transition: all 0.5s;
   }
-  .project .info {
-    display: inline-block;
-  }
-  .container--projects {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    margin-block: auto;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .container--projects {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-  }
+ 
 }
 .project:hover {
   transform: scale(1.1);
@@ -421,15 +403,9 @@ FOOTER
   width: 60px;
   margin: 0;
 }
-@media screen and (min-width: 500px) {
-  .container--footer {
-    margin-top: 0rem;
-  }
-}
+
 @media screen and (min-width: 812px) {
   .container--footer {
-    margin-top: 0rem;
-    padding: 0;
     font-size: 1rem;
   }
 }
@@ -446,10 +422,11 @@ FOOTER
   color: var(--clr-primary-1);
 }
 .socials a {
-  color: #2e6171;
+  color: var(--clr-primary-1);
 }
 .socials {
   display: flex;
+  align-items: center;
   gap: 1rem;
   font-size: 1.3rem;
 }
